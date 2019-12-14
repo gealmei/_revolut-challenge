@@ -65,7 +65,7 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
  * 6.2 Change file permissions using ```chmod 0400 bastion.pem```
 
- * 6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut.gui.co.uk```
+ * 6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut-guilherme.co.uk```
 
 7.Using the information collected at step 5 run
 
@@ -84,4 +84,5 @@ Testing Locally
 
 ```sed -i 's/USER/guilherme/' app.py; sed -i 's/PASSWORD/123456/' app.py; sed -i 's/DB-URI/db/' app.py```
 
-3. Run docker-compose up
+3. Run 
+```docker-compose up```
