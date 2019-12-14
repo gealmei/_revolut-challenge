@@ -53,5 +53,5 @@ variable "db-password" {
 }
 
 variable "image-tag" {
-  default = "2.0"
+  default = "3.0"
 }
