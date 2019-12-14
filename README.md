@@ -2,12 +2,12 @@
 ![Diagram](challenge-diagram.png)
 
 
-This Repository contains:
+* This Repository contains:
 - Infrastructure code in Terraform deploying the architecture at AWS
 - K8s deployment files
 - Python app exposing a rest API and using PostgreSQL as database
 
-PreReqs:
+* PreReqs:
 - AWS account
 - AWS service account with admin access
 - Terraform installed, version >0.12.
@@ -16,9 +16,9 @@ PreReqs:
 - Docker installed
 - Internet Connection
 
-IF using MAC OS please include '' at sed commands Ex. sed -i '' 's/.../.../' file
+* IF using MAC OS please include '' at sed commands Ex. sed -i '' 's/.../.../' file
 
-How TO:
+* How TO:
 1. Clone the repository locally
 ```git clone https://github.com/gealmei/_revolut-challenge.git```
 2. With AWS credentials configured, go to infrastructure directory 
@@ -28,7 +28,7 @@ and execute
 or fist you can validate the actions with
 ```terraform plan```
 
-Once the deploy is over you can start the app deployment, go into k8s-deploy
+* Once the deploy is over you can start the app deployment, go into k8s-deploy
 ```cd ../k8s-deploy```
 
 1. Get your new VPC ID using 
@@ -45,7 +45,6 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
     6.1 Dowload the key
     6.2 Change file permissions using ```chmod 0400 bastion.pem```
     6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut.gui.co.uk```
-
 7.Using the information collected at step 5 run
 ```curl -X PUT -H "Content-type: application/json" http://<internal-alb-domain>/hello/<name> -d '{"dateOfBirthday":"<YYYY-MM-DD>"}'``` TO INSERT DATA
 ```curl -X GET -H "Content-type: application/json" http://<internal-alb-domain>/hello/<name>``` TO CONSULT DATA
