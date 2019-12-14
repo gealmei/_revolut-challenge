@@ -1,18 +1,20 @@
 # Revolut Challenge
 ![Diagram](challenge-diagram.png)
-**This Repository contains:
+
+
+This Repository contains:
 - Infrastructure code in Terraform deploying the architecture at AWS
 - K8s deployment files
 - Python app exposing a rest API and using PostgreSQL as database
 
-**PreReqs:
+PreReqs:
 - AWS account
 - AWS service account with admin access
 - Terraform installed, version 0.12.*
 - AWS CLI installed
 - Kubectl installed 
 
-**How TO:
+How TO:
 1. Clone the repository locally
 ```git clone https://github.com/gealmei/_revolut-challenge.git```
 2. With AWS credentials configured go to directory infrastructure and execute
