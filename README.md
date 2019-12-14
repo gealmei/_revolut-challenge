@@ -2,12 +2,12 @@
 ![Diagram](challenge-diagram.png)
 
 
-* This Repository contains:
+This Repository contains:
 - Infrastructure code in Terraform deploying the architecture at AWS
 - K8s deployment files
 - Python app exposing a rest API and using PostgreSQL as database
 
-* PreReqs:
+PreReqs:
 - AWS account
 - AWS service account with admin access
 - Terraform installed, version >0.12.
@@ -16,16 +16,16 @@
 - Docker installed
 - Internet Connection
 
-* IF using MAC OS please include '' at sed commands Ex. sed -i '' 's/.../.../' file
+IF using MAC OS please include '' at sed commands Ex. sed -i '' 's/.../.../' file
 
-* How TO:
-1. Clone the repository locally
+How TO:
+* 1. Clone the repository locally
 ```git clone https://github.com/gealmei/_revolut-challenge.git```
-2. With AWS credentials configured, go to infrastructure directory 
+* 2. With AWS credentials configured, go to infrastructure directory 
 ```cd infrastructure``` 
-and execute 
+* and execute 
 ```terraform apply -auto-approve```
-or fist you can validate the actions with
+* or fist you can validate the actions with
 ```terraform plan```
 
 * Once the deploy is over you can start the app deployment, go into k8s-deploy
