@@ -23,7 +23,7 @@ How TO:
 
 ```git clone https://github.com/gealmei/_revolut-challenge.git```
 
-2. With AWS credentials configured, go to infrastructure directory 
+ 2. With AWS credentials configured, go to infrastructure directory 
 
 ```cd infrastructure``` 
 
@@ -55,17 +55,17 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
 ```./deploy.sh```
 
-5.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests using the bastion instance deployed previously
+ 5.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests using the bastion instance deployed previously
 
 ```kubectl get ingress/hello-ingress -n hello-app -o json | jq .status.loadBalancer.ingress[0].hostname```
 
-6.Acces the Bastion instance using the key provided
+ 6.Acces the Bastion instance using the key provided
 
-   6.1 Dowload the key
+ * 6.1 Dowload the key
 
-   6.2 Change file permissions using ```chmod 0400 bastion.pem```
+ * 6.2 Change file permissions using ```chmod 0400 bastion.pem```
 
-   6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut.gui.co.uk```
+ * 6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut.gui.co.uk```
 
 7.Using the information collected at step 5 run
 
