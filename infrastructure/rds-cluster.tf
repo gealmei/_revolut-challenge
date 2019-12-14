@@ -1,6 +1,6 @@
 resource "aws_rds_cluster_instance" "cluster_instances" {
   count              = 2
-  identifier         = "cluster-postgresql-test-gui${count.index}"
+  identifier         = "cluster-postgresql-revolut${count.index}"
   cluster_identifier = aws_rds_cluster.postgresql.id
   instance_class     = "db.r4.large"
   engine     = "aurora-postgresql"
@@ -8,7 +8,7 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
 }
 
 resource "aws_rds_cluster" "postgresql" {
-  cluster_identifier      = "cluster-postgresql-test-gui"
+  cluster_identifier      = "cluster-postgresql-revolut"
   engine                  = "aurora-postgresql"
   availability_zones      = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
   db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name

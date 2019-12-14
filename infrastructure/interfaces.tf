@@ -23,12 +23,12 @@ variable "newbits" {
 
 variable "default_tag" {
   type        = string
-  default     = "gui-test"
+  default     = "revolut-challenge"
 }
 
 variable "cluster-name" {
   type = string
-  default = "eks-gui"
+  default = "eks-revolut"
 }
 
 locals {
@@ -37,11 +37,7 @@ locals {
 }
 
 variable "ecr-name" {
-  default = "ecr-gui"
-}
-
-variable "account-id" {
-  default = 324382802360
+  default = "ecr-hello"
 }
 
 variable "db-user" {
@@ -53,5 +49,5 @@ variable "db-password" {
 }
 
 variable "image-tag" {
-  default = "3.0"
+  default = "latest"
 }

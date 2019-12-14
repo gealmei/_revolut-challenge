@@ -27,7 +27,7 @@ resource "aws_iam_role_policy_attachment" "cluster-EKSsvcpolicy" {
   role       = aws_iam_role.eks-cluster.name
 }
 
-resource "aws_eks_cluster" "eks-test-gui" {
+resource "aws_eks_cluster" "eks-revolut" {
   name     = var.cluster-name
   role_arn = aws_iam_role.eks-cluster.arn
 

@@ -1,4 +1,4 @@
-aws eks --region eu-west-1 update-kubeconfig --name eks-gui --profile sandbox
+aws eks --region eu-west-1 update-kubeconfig --name eks-revolut
 kubectl apply -f rbac-role.yaml
 kubectl apply -f alb-ingress-controller.yaml
 kubectl apply -f app_namespace.yaml

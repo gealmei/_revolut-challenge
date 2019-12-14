@@ -43,7 +43,7 @@ resource "aws_iam_role_policy_attachment" "node-ALBIngressControllerIAMPolicy" {
 }
 
 resource "aws_eks_node_group" "workers" {
-  cluster_name    = aws_eks_cluster.eks-test-gui.name
+  cluster_name    = aws_eks_cluster.eks-revolut.name
   node_group_name = "workers"
   node_role_arn   = aws_iam_role.node.arn
   subnet_ids      = aws_subnet.private[*].id

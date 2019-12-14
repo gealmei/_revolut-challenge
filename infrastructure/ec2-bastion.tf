@@ -1,9 +1,11 @@
+data "aws_caller_identity" "current" {}
+
 data "template_file" "userdata" {
   template = file("files/userdata.tpl")
 
   vars = {
     region = var.region
-    account-id = var.account-id
+    account-id = data.aws_caller_identity.current.account_id
     ecr-name = var.ecr-name
     db-uri = aws_route53_record.cname.fqdn
     db-user = var.db-user 

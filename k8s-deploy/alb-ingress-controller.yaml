@@ -31,8 +31,8 @@ spec:
             # annotation kubernetes.io/ingress.class: "alb" are respected by the controller. You may
             # choose any class you'd like for this controller to respect.
             - --ingress-class=alb
-            - --cluster-name=eks-gui
-            - --aws-vpc-id=vpc-0e270357924c105d2
+            - --cluster-name=eks-revolut
+            - --aws-vpc-id=NEW-VPC-ID
             - --aws-region=eu-west-1
 
             # REQUIRED

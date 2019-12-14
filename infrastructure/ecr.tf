@@ -1,4 +1,4 @@
-resource "aws_ecr_repository" "test-gui" {
+resource "aws_ecr_repository" "ecr" {
   name                 = var.ecr-name
   image_tag_mutability = "MUTABLE"
 
