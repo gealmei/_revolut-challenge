@@ -35,13 +35,12 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 ```aws ec2 describe-vpcs --filters "Name=tag:Name, Values=revolut-challenge" | jq .Vpcs[0].VpcId```
 2. With your new VPC ID change the ID information at alb-ingress-controller.yaml
 ``` sed -i 's\NEW-VPC-ID\<information from last command>\' alb-ingress-controller.yaml```
-3. Validate if the data is changed ```cat alb-ingress-controller.yaml | gre <information from step 1>```
-
-4.Run the deployment```./deploy.sh```
-
+3. Validate if the data is changed 
+```cat alb-ingress-controller.yaml | gre <information from step 1>```
+4.Run the deployment
+```./deploy.sh```
 5.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests using the bastion instance deployed previously
 ```kubectl get ingress/hello-ingress -n hello-app -o json | jq .status.loadBalancer.ingress[0].hostname```
-
 6.Acces the Bastion instance using the key provided
     6.1 Dowload the key
     6.2 Change file permissions using ```chmod 0400 bastion.pem```
