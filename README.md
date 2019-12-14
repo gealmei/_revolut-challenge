@@ -60,10 +60,14 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 ```kubectl get ingress/hello-ingress -n hello-app -o json | jq .status.loadBalancer.ingress[0].hostname```
 
 6.Acces the Bastion instance using the key provided
+
    6.1 Dowload the key
+
    6.2 Change file permissions using ```chmod 0400 bastion.pem```
+
    6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut.gui.co.uk```
- 7.Using the information collected at step 5 run
+
+7.Using the information collected at step 5 run
 
 ```curl -X PUT -H "Content-type: application/json" http://<internal-alb-domain>/hello/<name> -d '{"dateOfBirthday":"<YYYY-MM-DD>"}'``` TO INSERT DATA
 
