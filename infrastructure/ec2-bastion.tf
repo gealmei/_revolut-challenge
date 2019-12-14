@@ -8,6 +8,7 @@ data "template_file" "userdata" {
     db-uri = aws_route53_record.cname.fqdn
     db-user = var.db-user 
     db-password = var.db-password
+    image-tag = var.image-tag
   }
 }
 

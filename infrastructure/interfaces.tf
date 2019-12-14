@@ -51,3 +51,7 @@ variable "db-user" {
 variable "db-password" {
   default = "Eeghae+g2o"
 }
+
+variable "image-tag" {
+  default = "1.0"
+}

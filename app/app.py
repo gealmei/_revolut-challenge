@@ -75,5 +75,22 @@ def hello(username):
 
     else:
         return jsonify({'status': 'ERROR', 'message': 'Only letters accepted on username'}), 422
-app.run(host='0.0.0.0', port=8000, debug=True)
 
+@app.route('/api/status', methods=['GET'])
+def health_database_status():
+    is_database_working = True
+    outpt = 'the data base is working'
+
+    try:
+        # to check database we will execute raw query
+        db.session.execute('SELECT 1')
+    except Exception as e:
+        output = str(e)
+        is_database_working = False
+    
+    if is_database_working = True:
+        return jsonify({'status': is_database_working, 'message': output}), 200
+    else:
+        return jsonify({'status': is_database_working, 'message': output}), 400
+    
+app.run(host='0.0.0.0', port=8000, debug=True)
