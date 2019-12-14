@@ -45,6 +45,8 @@ def hello(username):
                 if user:
                     if user.birthday != birthday:
                         user.birthday = birthday
+                        db.session.merge(user)
+                        db.session.commit()
                         return jsonify({'status': 'OK', 'message': 'User {} has been updated'.format(username.capitalize())}), 200
                     else:
                         return jsonify({'status': 'ERROR', 'message': 'Cannot update user {}. same birthday'.format(username.capitalize())}), 422
