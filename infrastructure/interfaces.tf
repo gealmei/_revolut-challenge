@@ -23,12 +23,12 @@ variable "newbits" {
 
 variable "default_tag" {
   type        = string
-  default     = "test_gui"
+  default     = "gui-test"
 }
 
 variable "cluster-name" {
   type = string
-  default = "test_gui"
+  default = "eks-gui"
 }
 
 locals {
@@ -37,9 +37,17 @@ locals {
 }
 
 variable "ecr-name" {
-  default = "test-gui"
+  default = "ecr-gui"
 }
 
 variable "account-id" {
   default = 324382802360
+}
+
+variable "db-user" {
+  default = "guilherme"
+}
+
+variable "db-password" {
+  default = "Eeghae+g2o"
 }

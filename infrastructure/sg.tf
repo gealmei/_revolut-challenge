@@ -51,3 +51,38 @@ resource "aws_security_group_rule" "bastion-ingress-ssh" {
   to_port           = 22
   type              = "ingress"
 }
+
+resource "aws_security_group" "rds_sg" {
+  name        = "postgre-rds-sg"
+  description = "security group to access postgreSQL"
+  vpc_id      = aws_vpc.default.id
+
+  tags = {
+    Name = "postgre-rds-sg"
+  }
+
+  // allows traffic from the SG itself
+  ingress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    self      = true
+  }
+
+  // allow traffic for TCP on database
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = flatten([aws_subnet.private.*.cidr_block])
+  }
+
+  // outbound internet access
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+

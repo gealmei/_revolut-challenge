@@ -4,8 +4,6 @@ import datetime
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://guilherme:123456@db/hello'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -66,9 +64,6 @@ def hello(username):
                     if birthday > today:
                         days_to_birthday = (birthday - today).days
                     else:
-                        # gambiarraaaa
-                        # maldito fevereiro
-                        # esse código só funciona pro próximo aniversário rsrs
                         if birthday.month > 2:
                             days_to_birthday = 365 + (birthday - today).days + 1
                         else:

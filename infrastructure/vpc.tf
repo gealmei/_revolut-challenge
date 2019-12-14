@@ -8,6 +8,6 @@ resource "aws_vpc" "default" {
 
   tags = {
     Name = var.default_tag,
-    "kubernetes.io/cluster/test_gui" = "shared"
+    "kubernetes.io/cluster/${var.cluster-name}" = "shared"
   }
 }

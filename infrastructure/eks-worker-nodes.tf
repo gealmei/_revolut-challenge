@@ -18,7 +18,7 @@ POLICY
 }
 resource "aws_iam_policy" "ALBIngressControllerIAMPolicy" {
   name        = "ALBIngressControllerIAMPolicy"
-  policy      = file("iam-policy.json")
+  policy      = file("files/iam-policy.json")
 }
 
 resource "aws_iam_role_policy_attachment" "node-EKSWorkerNodePolicy" {

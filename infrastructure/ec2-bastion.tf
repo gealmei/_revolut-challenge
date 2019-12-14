@@ -1,10 +1,13 @@
 data "template_file" "userdata" {
-  template = file("userdata.tpl")
+  template = file("files/userdata.tpl")
 
   vars = {
     region = var.region
     account-id = var.account-id
     ecr-name = var.ecr-name
+    db-uri = aws_route53_record.cname.fqdn
+    db-user = var.db-user 
+    db-password = var.db-password
   }
 }
 
@@ -40,7 +43,7 @@ resource "aws_instance" "ec2" {
   ami                         = "ami-02dca57ad67c7bf57"
   vpc_security_group_ids      = [aws_security_group.sg-bastion.id]
   key_name                    = aws_key_pair.bastion.key_name
-  instance_type               = "m5.large"
+  instance_type               = "t3.medium"
   iam_instance_profile        = aws_iam_instance_profile.ec2_profile.name
   subnet_id                   = aws_subnet.public[0].id
   associate_public_ip_address = true
