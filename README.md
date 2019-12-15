@@ -83,6 +83,10 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
 ```curl -X GET -H "Content-type: application/json" http://<internal-alb-domain>/api/status``` HEALTHCHECK VALIDATING DB CONNECTION
 
+10. Finally destroy the infrastructure after tests
+
+```cd ../infrastructure``` ```terraform destroy```
+
 Testing Locally
 1. Go to app directory 
 
