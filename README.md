@@ -30,7 +30,7 @@ How TO:
 and execute
 ```terraform init```
 
-run terraform plam to validate the actions an them apply to start the infrastructure creation.
+run terraform plan to validate the actions an them apply to start the infrastructure creation.
 
 ```terraform plan```
 ```terraform apply -auto-approve```
