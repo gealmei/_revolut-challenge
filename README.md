@@ -93,4 +93,13 @@ Testing Locally
 ```sed -i 's/USER/guilherme/' app.py; sed -i 's/PASSWORD/123456/' app.py; sed -i 's/DB-URI/db/' app.py```
 
 3. Run 
+
 ```docker-compose up```
+
+4. You are able to test locally executing.
+
+```curl -X PUT -H "Content-type: application/json" http://localhost:8000/hello/<name> -d '{"dateOfBirthday":"<YYYY-MM-DD>"}'```
+
+```curl -X GET -H "Content-type: application/json" http://localhost:8000/hello/<name>``` TO CONSULT DATA
+
+```curl -X GET -H "Content-type: application/json" http://localhost:8000/api/status``` HEALTHCHECK VALIDATING DB CONNECTION
