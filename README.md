@@ -71,7 +71,7 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
  * 8.1 Dowload the key
 
- * 8.2 Change file permissions using ```chmod 0400 bastion.pem```
+ * 8.2 Change file permissions using ```chmod 0400 bastion```
 
  * 8.3 Access the instance ```ssh -i bastion ec2-user@bastion.gui-challenge.co.uk```
 
