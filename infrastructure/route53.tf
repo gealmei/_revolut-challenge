@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "private" {
-  name = "default_tag.internal.uk"
+  name = "${var.default_tag}.internal.uk"
 
   vpc {
     vpc_id = aws_vpc.default.id
@@ -15,7 +15,7 @@ resource "aws_route53_record" "cname" {
 }
 
 resource "aws_route53_zone" "public" {
-  name = "revolut-guilherme.co.uk"
+  name = "${var.default_tag}.co.uk"
 }
 
 resource "aws_route53_record" "host-A" {
