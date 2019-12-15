@@ -51,23 +51,31 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
 ```cat alb-ingress-controller.yaml | gre <information from step 1>```
 
- 4.Run the deployment
+ 4. Get your Account ID
+
+```aws sts get-caller-identity | jq .Account```
+
+ 5. With you Account ID from last command run 
+
+```sed -i 's\ACCOUNT-ID\<information from last command>\' app_deployment.yaml```
+
+ 6.Run the deployment
 
 ```./deploy.sh```
 
- 5.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests using the bastion instance deployed previously
+ 7.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests using the bastion instance deployed previously
 
 ```kubectl get ingress/hello-ingress -n hello-app -o json | jq .status.loadBalancer.ingress[0].hostname```
 
- 6.Acces the Bastion instance using the key provided
+ 8.Acces the Bastion instance using the key provided
 
- * 6.1 Dowload the key
+ * 8.1 Dowload the key
 
- * 6.2 Change file permissions using ```chmod 0400 bastion.pem```
+ * 8.2 Change file permissions using ```chmod 0400 bastion.pem```
 
- * 6.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut-guilherme.co.uk```
+ * 8.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut-guilherme.co.uk```
 
-7.Using the information collected at step 5 run
+9.Using the information collected at step 5 run
 
 ```curl -X PUT -H "Content-type: application/json" http://<internal-alb-domain>/hello/<name> -d '{"dateOfBirthday":"<YYYY-MM-DD>"}'``` TO INSERT DATA
 
