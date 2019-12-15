@@ -18,6 +18,7 @@ resource "aws_rds_cluster" "postgresql" {
   backup_retention_period = 5
   preferred_backup_window = "05:00-07:00"
   vpc_security_group_ids  = [aws_security_group.rds_sg.id]
+  skip_final_snapshot     = true
 }
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
