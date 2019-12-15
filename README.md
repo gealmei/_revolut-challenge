@@ -45,7 +45,7 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
  2. With your new VPC ID change the ID information at alb-ingress-controller.yaml
 
-``` sed -i 's\NEW-VPC-ID\<information from last command>\' alb-ingress-controller.yaml```
+``` sed -i 's/NEW-VPC-ID/<information from last command>/' alb-ingress-controller.yaml```
 
  3. Validate if the data is changed 
 
@@ -57,13 +57,13 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
  5. With you Account ID from last command run 
 
-```sed -i 's\ACCOUNT-ID\<information from last command>\' app_deployment.yaml```
+```sed -i 's/ACCOUNT-ID/<information from last command>/' app_deployment.yaml```
 
  6.Run the deployment
 
 ```./deploy.sh```
 
- 7.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests using the bastion instance deployed previously
+ 7.Once finished and the service is running you will be able to retrieve the loadbalancer internal url for tests from you local instance
 
 ```kubectl get ingress/hello-ingress -n hello-app -o json | jq .status.loadBalancer.ingress[0].hostname```
 
@@ -73,7 +73,7 @@ Once the deploy is over you can start the app deployment, go into k8s-deploy
 
  * 8.2 Change file permissions using ```chmod 0400 bastion.pem```
 
- * 8.3 Access the instance ```ssh -i bastion.pem ec2-user@bastion.revolut-guilherme.co.uk```
+ * 8.3 Access the instance ```ssh -i bastion ec2-user@bastion.gui-challenge.co.uk```
 
 9.Using the information collected at step 5 run
 
