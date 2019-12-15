@@ -22,12 +22,12 @@ variable "newbits" {
 }
 
 variable "default_tag" {
-  type        = string
-  default     = "revolut-challenge"
+  type    = string
+  default = "revolut-challenge"
 }
 
 variable "cluster-name" {
-  type = string
+  type    = string
   default = "eks-revolut"
 }
 

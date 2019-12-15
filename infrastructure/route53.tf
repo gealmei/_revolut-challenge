@@ -11,7 +11,7 @@ resource "aws_route53_record" "cname" {
   name    = "db"
   type    = "CNAME"
   ttl     = "5"
-  records        = [aws_rds_cluster.postgresql.endpoint]
+  records = [aws_rds_cluster.postgresql.endpoint]
 }
 
 resource "aws_route53_zone" "public" {
@@ -20,8 +20,8 @@ resource "aws_route53_zone" "public" {
 
 resource "aws_route53_record" "host-A" {
   zone_id = aws_route53_zone.public.zone_id
-  name = "bastion"
-  type = "A"
+  name    = "bastion"
+  type    = "A"
   records = [aws_instance.ec2.public_ip]
-  ttl = "5"
+  ttl     = "5"
 }

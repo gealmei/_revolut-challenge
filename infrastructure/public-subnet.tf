@@ -15,9 +15,9 @@ resource "aws_subnet" "public" {
   depends_on              = [aws_internet_gateway.default]
 
   tags = {
-    Name = "${var.default_tag}-public-subnet",
+    Name                                        = "${var.default_tag}-public-subnet",
     "kubernetes.io/cluster/${var.cluster-name}" = "shared",
-    "kubernetes.io/role/elb" = "1"
+    "kubernetes.io/role/elb"                    = "1"
   }
 }
 

@@ -4,18 +4,18 @@ data "template_file" "userdata" {
   template = file("files/userdata.tpl")
 
   vars = {
-    region = var.region
-    account-id = data.aws_caller_identity.current.account_id
-    ecr-name = var.ecr-name
-    db-uri = aws_route53_record.cname.fqdn
-    db-user = var.db-user 
+    region      = var.region
+    account-id  = data.aws_caller_identity.current.account_id
+    ecr-name    = var.ecr-name
+    db-uri      = aws_route53_record.cname.fqdn
+    db-user     = var.db-user
     db-password = var.db-password
-    image-tag = var.image-tag
+    image-tag   = var.image-tag
   }
 }
 
 resource "aws_iam_role" "bastion" {
-  name = "bastion-instance-role"
+  name               = "bastion-instance-role"
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -56,7 +56,7 @@ resource "aws_instance" "ec2" {
   monitoring                  = false
 
   root_block_device {
-    volume_size           = 20
+    volume_size = 20
   }
   tags = {
     Name = "bastion-instance"

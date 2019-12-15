@@ -27,13 +27,13 @@ How TO:
 
 ```cd infrastructure``` 
 
-and execute 
+and execute
+```terraform init```
 
-```terraform apply -auto-approve```
-
-or fist you can validate the actions with
+run terraform plam to validate the actions an them apply to start the infrastructure creation.
 
 ```terraform plan```
+```terraform apply -auto-approve```
 
 Once the deploy is over you can start the app deployment, go into k8s-deploy
 

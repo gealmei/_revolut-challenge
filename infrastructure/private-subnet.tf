@@ -20,9 +20,9 @@ resource "aws_subnet" "private" {
   depends_on              = [aws_nat_gateway.gw]
 
   tags = {
-    Name = "${var.default_tag}-private-subnet",
+    Name                                        = "${var.default_tag}-private-subnet",
     "kubernetes.io/cluster/${var.cluster-name}" = "shared",
-    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/role/internal-elb"           = "1"
   }
 }
 
